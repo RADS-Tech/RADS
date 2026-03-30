@@ -1,0 +1,99 @@
+# ════════════════════════════════════════════════════════════
+# RADS - Roadside Accident Detection System
+# Python Dependencies
+# ════════════════════════════════════════════════════════════
+#
+# Installation:
+#   pip install -r requirements.txt
+#
+# For GPU support (NVIDIA CUDA 12.4):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+#
+# ════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────────────────
+# DEEP LEARNING FRAMEWORK
+# ──────────────────────────────────────────────────────────
+torch>=2.0.0
+torchvision>=0.15.0
+
+# ──────────────────────────────────────────────────────────
+# YOLO & OBJECT DETECTION
+# ──────────────────────────────────────────────────────────
+ultralytics>=8.0.0
+
+# ──────────────────────────────────────────────────────────
+# COMPUTER VISION
+# ──────────────────────────────────────────────────────────
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+
+# ──────────────────────────────────────────────────────────
+# NUMERICAL & SCIENTIFIC COMPUTING
+# ──────────────────────────────────────────────────────────
+numpy>=1.24.0
+scipy>=1.10.0
+
+# ──────────────────────────────────────────────────────────
+# DATA HANDLING
+# ──────────────────────────────────────────────────────────
+pandas>=2.0.0
+Pillow>=10.0.0
+
+# ──────────────────────────────────────────────────────────
+# PLOTTING & VISUALIZATION
+# ──────────────────────────────────────────────────────────
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ──────────────────────────────────────────────────────────
+# PROGRESS BARS
+# ──────────────────────────────────────────────────────────
+tqdm>=4.65.0
+
+# ──────────────────────────────────────────────────────────
+# YAML CONFIGURATION
+# ──────────────────────────────────────────────────────────
+PyYAML>=6.0
+
+# ──────────────────────────────────────────────────────────
+# HTTP REQUESTS (for API calls)
+# ──────────────────────────────────────────────────────────
+requests>=2.31.0
+
+# ──────────────────────────────────────────────────────────
+# OPTIONAL: DEVELOPMENT TOOLS
+# ──────────────────────────────────────────────────────────
+# Uncomment these for development:
+# ipython>=8.12.0
+# jupyter>=1.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+# pytest>=7.3.0
+
+# ════════════════════════════════════════════════════════════
+# NOTES:
+# ════════════════════════════════════════════════════════════
+#
+# 1. PyTorch Installation:
+#    For CUDA 12.4 (NVIDIA GPU):
+#      pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+#
+#    For CPU only:
+#      pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# 2. Ultralytics includes:
+#    - YOLOv8 models
+#    - Training utilities
+#    - Inference engine
+#
+# 3. OpenCV versions:
+#    - opencv-python: Basic OpenCV functionality
+#    - opencv-contrib-python: Additional modules (trackers, etc.)
+#
+# 4. Verify installation:
+#    python -c "import torch; print(torch.__version__)"
+#    python -c "import cv2; print(cv2.__version__)"
+#    python -c "from ultralytics import YOLO; print('YOLOv8 OK')"
+#
+# ════════════════════════════════════════════════════════════

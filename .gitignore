@@ -1,0 +1,216 @@
+# ════════════════════════════════════════════════════════════
+# RADS - Roadside Accident Detection System
+# .gitignore - Files to exclude from Git
+# ════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────────────────
+# SENSITIVE DATA (NEVER COMMIT THESE)
+# ──────────────────────────────────────────────────────────
+config.php
+.env
+.env.local
+secrets.json
+credentials.json
+*_api_key.txt
+*_password.txt
+
+# Fast2SMS API keys
+send_alert.php.backup
+*_configured.php
+
+# Database dumps with real data
+*.sql.backup
+database_dump_*.sql
+
+# ──────────────────────────────────────────────────────────
+# PYTHON
+# ──────────────────────────────────────────────────────────
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+virtualenv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# PyTorch/ML models (host on releases instead)
+*.pt
+*.pth
+*.ckpt
+*.weights
+*.h5
+best.pt
+last.pt
+
+# Training outputs
+runs/
+wandb/
+*.log
+lightning_logs/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.pytest_cache/
+
+# ──────────────────────────────────────────────────────────
+# PHP
+# ──────────────────────────────────────────────────────────
+vendor/
+composer.lock
+*.phar
+
+# ──────────────────────────────────────────────────────────
+# DATASETS & MEDIA (TOO LARGE FOR GIT)
+# ──────────────────────────────────────────────────────────
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+
+# Images (keep small logos/icons, exclude datasets)
+datasets/
+data/images/
+data/videos/
+uploads/
+temp_videos/
+
+# Annotations (if large dataset)
+data/labels/
+
+# ──────────────────────────────────────────────────────────
+# XAMPP / SERVER
+# ──────────────────────────────────────────────────────────
+xampp/
+htdocs/
+phpmyadmin/
+
+# ──────────────────────────────────────────────────────────
+# DATABASES
+# ──────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# MySQL
+*.sql
+mysql-data/
+
+# Backup files
+*.bak
+*.backup
+
+# ──────────────────────────────────────────────────────────
+# IDE / EDITOR
+# ──────────────────────────────────────────────────────────
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ──────────────────────────────────────────────────────────
+# OPERATING SYSTEM
+# ──────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ──────────────────────────────────────────────────────────
+# LOGS & TEMP FILES
+# ──────────────────────────────────────────────────────────
+logs/
+*.log
+debug.txt
+error.log
+access.log
+
+# Temporary files
+tmp/
+temp/
+cache/
+*.tmp
+*.temp
+
+# ──────────────────────────────────────────────────────────
+# DOCUMENTATION (KEEP SMALL PDFs, EXCLUDE LARGE FILES)
+# ──────────────────────────────────────────────────────────
+# Exclude large documentation if >10MB
+docs/full_dataset_documentation.pdf
+
+# ──────────────────────────────────────────────────────────
+# COMPILED / BINARY
+# ──────────────────────────────────────────────────────────
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.a
+*.lib
+
+# ──────────────────────────────────────────────────────────
+# PACKAGE MANAGERS
+# ──────────────────────────────────────────────────────────
+node_modules/
+package-lock.json
+yarn.lock
+
+# ──────────────────────────────────────────────────────────
+# KEEP THESE FILES (OVERRIDE ABOVE RULES)
+# ──────────────────────────────────────────────────────────
+# Keep sample images for documentation
+!docs/images/*.png
+!docs/images/*.jpg
+
+# Keep empty model directory with .gitkeep
+!model/.gitkeep
+
+# Keep configuration templates
+!config.template.php
+!.env.example
+
+# ════════════════════════════════════════════════════════════
+# END OF .gitignore
+# ════════════════════════════════════════════════════════════

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - RADS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0d0d;
+      --panel:     #161616;
+      --border:    #2a2a2a;
+      --text:      #e0e0e0;
+      --muted:     #666;
+      --red:       #e53935;
+      --red-dim:   #7a1f1d;
+      --green:     #43a047;
+      --yellow:    #fbc02d;
+      --mono:      'Share Tech Mono', monospace;
+      --sans:      'Barlow', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /*animated grid background*/
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(229,57,53,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(229,57,53,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corner-decoration {
+      position: fixed;
+      width: 200px; height: 200px;
+      border: 1px solid var(--red-dim);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .corner-decoration.tl { top: -50px; left: -50px; transform: rotate(15deg); }
+    .corner-decoration.br { bottom: -50px; right: -50px; transform: rotate(15deg); }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      padding: 20px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-bar {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-bar .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(229,57,53,0.1);
+      border: 1px solid var(--red-dim);
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .badge span {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--red);
+    }
+    .logo-bar h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .logo-bar h1 span { color: var(--red); }
+    .logo-bar p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-family: var(--mono);
+      letter-spacing: 1px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--red);
+      padding: 32px;
+      position: relative;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .card-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+
+    .field {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-family: var(--mono);
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    input, select {
+      width: 100%;
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      padding: 10px 12px;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+      appearance: none;
+    }
+    input:focus, select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(229,57,53,0.1);
+    }
+    input::placeholder { color: #333; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+      cursor: pointer;
+    }
+    select option { background: #161616; }
+
+    .location-note {
+      background: rgba(251,192,45,0.07);
+      border: 1px solid rgba(251,192,45,0.2);
+      border-radius: 2px;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--yellow);
+      font-family: var(--mono);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 13px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { background: #c62828; }
+    .btn-submit:active { transform: scale(0.99); }
+
+    .login-link {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .login-link a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .login-link a:hover { text-decoration: underline; }
+
+    .error-msg {
+      background: rgba(229,57,53,0.1);
+      border: 1px solid var(--red-dim);
+      color: #ff6b6b;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      display: none;
+      font-family: var(--mono);
+    }
+    .success-msg {
+      background: rgba(67,160,71,0.1);
+      border: 1px solid #2e7d32;
+      color: var(--green);
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      display: none;
+      font-family: var(--mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="corner-decoration tl"></div>
+  <div class="corner-decoration br"></div>
+
+  <div class="wrapper">
+    <div class="logo-bar">
+      <div class="badge">
+        <div class="pulse-dot"></div>
+        <span>SYSTEM ONLINE</span>
+      </div>
+      <h1>R<span>A</span>DS</h1>
+      <p>Roadside Accident Detection System</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Create Operator Account</div>
+
+      <div class="error-msg" id="errorMsg"></div>
+      <div class="success-msg" id="successMsg"></div>
+
+      <form id="registerForm" method="POST" action="php/register.php">
+        <div class="form-row">
+          <div class="field">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="John" required />
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Doe" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="operator_01" required />
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="operator@traffic.gov" required />
+        </div>
+
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="+91 98765 43210" required />
+        </div>
+
+        <div class="field">
+          <label>Assigned Location</label>
+          <input type="text" name="location" placeholder="e.g. NH-16 Bypass, Bhubaneswar" required />
+          <div class="location-note" style="margin-top:8px; margin-bottom:0;">
+            <span>⚠</span>
+            <span>This location is permanently linked to your account and will be included in all emergency alerts you dispatch.</span>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:14px;">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="••••••••" required minlength="6" />
+        </div>
+
+        <div class="field">
+          <label>Confirm Password</label>
+          <input type="password" name="confirm_password" id="confirmPwd" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Register Operator</button>
+      </form>
+
+      <div class="login-link">
+        Already registered? <a href="login.php">Sign In →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      const pwd = document.querySelector('[name="password"]').value;
+      const cpwd = document.getElementById('confirmPwd').value;
+      const err = document.getElementById('errorMsg');
+      if (pwd !== cpwd) {
+        e.preventDefault();
+        err.style.display = 'block';
+        err.textContent = '⚠ Passwords do not match.';
+      }
+    });
+  </script>
+</body>
+</html>

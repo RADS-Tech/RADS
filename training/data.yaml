@@ -1,0 +1,10 @@
+path: E:/roadside_accident_project/dataset
+train: images/train
+val: images/val
+
+nc: 4
+names:
+  - car
+  - motorbike
+  - bus
+  - truck
