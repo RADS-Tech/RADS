@@ -60,17 +60,33 @@ RADS is an end-to-end accident detection system that combines deep learning (YOL
 
 ## 🎬 Demo
 
-### Dashboard Interface
-![Dashboard Preview](docs/images/dashboard_preview.png)
+### 🔐 Login Interface
 
-### Detection Result
+![Login](docs/images/login_preview.png)
+
+### 📊 Dashboard Interface
+
+![Dashboard](docs/images/dashboard_preview.png)
+
+### 🔄 Accident Detection Processing
+
+![Analyzing](docs/images/analyzing_preview.png)
+
+### 🎯 Detection Result
+
 ![Detection Result](docs/images/detection_result.png)
 
-### SMS Alert Sample
-```
-ACCIDENT ALERT! Location: Kolkata EM Bypass Near Ruby Hospital. 
-Operator: Rajesh Kumar. Confidence: 87%. Respond immediately.
-```
+### 🚨 Accident Alert (System Generated)
+
+![Accident Alert](docs/images/alert-authorities_preview.png)
+
+### 📢 Authorities Notified
+
+![Authorities Alerted](docs/images/authorities-alerted_preview.png)
+
+### 📩 SMS Alert (Actual Message)
+
+![Accident Alert SMS](docs/images/accident-alert_preview.png)
 
 ---
 
@@ -219,8 +235,8 @@ RADS/
 │   │   ├── analyze.php                  # Python script caller
 │   │   └── send_alert.php               # SMS dispatch
 │   ├── model/
-│   │   └── best.pt                      # YOLOv8 trained weights
-│   ├── detect.py                        # Accident detection script
+│   │   ├── best.pt (not included)       # YOLOv8 trained weights
+│   │   └── detect.py                    # Accident detection script
 │   ├── dashboard.php                    # Operator interface
 │   ├── database_setup.sql               # MySQL schema
 │   └── index.html                       # Landing page
@@ -233,7 +249,7 @@ RADS/
 │       └── val/                         # Validation images
 │
 ├── docs/
-│   ├── RADS_Project_Report.pdf          # Full project report
+│   ├── RADS_Project_Report.pdf (pending upload)   # Signed version will be added
 │   ├── RADS_Presentation.pdf            # Project presentation
 │   └── images/                          # Documentation images
 │
