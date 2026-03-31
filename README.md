@@ -13,7 +13,7 @@ RADS is an end-to-end accident detection system that combines deep learning (YOL
 
 ## ✨ Features
 
-### 🎯 Core Capabilities
+### ⚡ Core Capabilities
 - **YOLOv8n Fine-Tuning**: Custom-trained model on 6,424 annotated frames (4 vehicle classes: car, bike, bus, truck)
 - **5-Rule Accident Detection System**: Multi-heuristic approach combining velocity drop, IoU overlap, area change, abnormal stop, and trajectory deviation
 - **Web Dashboard**: Real-time monitoring interface for operators with video upload and analysis
@@ -352,7 +352,7 @@ https://github.com/RADS-Tech/RADS
 ## 📈 Project Status
 
 **Current Version**: 1.0.0  
-**Status**: ✅ Stable Release  
+**Status**: Stable Release  
 **Last Updated**: March 2026
 
 ### Roadmap
